@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NetCoreMVC_Otopark.Models.Arac>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Core Otopark Araç Listesi</h1>
+
+<p>
+    <a asp-action="AracGiris">Yeni Araç Girişi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AracPlaka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GirisTarihi)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AracPlaka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GirisTarihi)
+            </td>
+            
+            <td>
+                <a asp-action="AracCikis" asp-route-id="@item.AracID">Araç Çıkışı</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
